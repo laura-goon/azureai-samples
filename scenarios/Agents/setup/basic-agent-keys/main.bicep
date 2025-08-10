@@ -80,7 +80,7 @@ module aiDependencies 'modules-basic/basic-dependent-resources.bicep' = {
 }
 
 module aiHub 'modules-basic/basic-ai-hub-keys.bicep' = {
-  name: 'ai-${name}-${uniqueSuffix}-deployment'
+  name: '${name}-${uniqueSuffix}-deployment'
   params: {
     // workspace organization
     aiHubName: 'ai-${name}-${uniqueSuffix}'
@@ -98,7 +98,7 @@ module aiHub 'modules-basic/basic-ai-hub-keys.bicep' = {
 }
 
 module aiProject 'modules-basic/basic-ai-project-keys.bicep' = {
-  name: 'ai-${projectName}-${uniqueSuffix}-deployment'
+  name: '${projectName}-${uniqueSuffix}-deployment'
   params: {
     // workspace organization
     aiProjectName: 'ai-${projectName}-${uniqueSuffix}'
