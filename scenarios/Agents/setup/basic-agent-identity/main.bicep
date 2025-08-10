@@ -145,7 +145,7 @@ module aiServiceRoleAssignments 'modules-basic/ai-service-role-assignments.bicep
   }
 }
 
-module addCapabilityHost 'modules-standard/add-capability-host.bicep' = {
+module addCapabilityHost 'modules-basic/add-capability-host.bicep' = {
   name: 'capabilityHost-configuration--${uniqueSuffix}-deployment'
   params: {
     capabilityHostName: '${uniqueSuffix}-${capabilityHostName}'
