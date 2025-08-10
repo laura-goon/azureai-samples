@@ -21,6 +21,9 @@ param aiProjectFriendlyName string = 'Agents standard project resource'
 @description('Description of your Azure AI resource dispayed in AI studio')
 param aiProjectDescription string = 'A standard project resource required for the agent setup.'
 
+@description('Name for capabilityHost.')
+param capabilityHostName string = 'caphost1'
+
 @description('Azure region used for the deployment of all resources.')
 param location string = resourceGroup().location
 
@@ -110,6 +113,18 @@ module aiProject 'modules-basic/basic-ai-project-keys.bicep' = {
     // dependent resources
     aiHubId: aiHub.outputs.aiHubID
   }
+}
+
+module addCapabilityHost 'modules-basic/add-capability-host.bicep' = {
+  name: 'capabilityHost-configuration--${uniqueSuffix}-deployment'
+  params: {
+    capabilityHostName: '${uniqueSuffix}-${capabilityHostName}'
+    aiHubName: aiHub.outputs.aiHubName
+    aiProjectName: aiProject.outputs.aiProjectName
+  }
+  dependsOn: [
+    aiHub, aiProject
+  ]
 }
 
 output PROJECT_CONNECTION_STRING string = aiProject.outputs.projectConnectionString
