@@ -98,7 +98,7 @@ module aiHub 'modules-basic/basic-ai-hub-identity.bicep' = {
   name: '${name}-${uniqueSuffix}-deployment'
   params: {
     // workspace organization
-    aiHubName: 'ai-${name}-${uniqueSuffix}'
+    aiHubName: '${name}-${uniqueSuffix}'
     aiHubFriendlyName: aiHubFriendlyName
     aiHubDescription: aiHubDescription
     location: location
@@ -121,7 +121,7 @@ module aiProject 'modules-basic/basic-ai-project-identity.bicep' = {
   name: '${projectName}-${uniqueSuffix}-deployment'
   params: {
     // workspace organization
-    aiProjectName: 'ai-${projectName}-${uniqueSuffix}'
+    aiProjectName: '${projectName}-${uniqueSuffix}'
     aiProjectFriendlyName: aiProjectFriendlyName
     aiProjectDescription: aiProjectDescription
     location: location
