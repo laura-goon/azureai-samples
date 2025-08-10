@@ -46,3 +46,4 @@ resource aiProject 'Microsoft.MachineLearningServices/workspaces@2023-08-01-prev
 
 output aiProjectID string = aiProject.id
 output projectConnectionString string = aiProject.tags.ProjectConnectionString
+output aiProjectName string = aiProject.name
